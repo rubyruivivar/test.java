@@ -1579,7 +1579,7 @@ public class GuardianOfArchipelago {
                     // continueProgram2 = false;
                     break;
                 case 2:
-                    System.out.println("\nYou choose the island of " + locations[choice3A - 1] + "."); // Kindlewood
+                    System.out.println("\nYou choose the island of " + locations[choice3A] + "."); // Kindlewood
                     System.out.println(
                             "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
                     chosenRoutes3A = displayRoutes3A(2);
@@ -1597,12 +1597,14 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    
                     // continueProgram2 = false;
                     break;
                 case 3:
-                    System.out.println("\nYou choose the island of " + locations[choice3A - 1] + "."); // Aquaville
+                    System.out.println("\nYou choose the island of " + locations[choice3A] + "."); // Aquaville
                     System.out.println(
                             "\nDESCRIPTION: One of the Forbidden Islands known for its earthquake phenomenon and is best described for its weather condition - summer.\n");
+                    chosenRoutes3A = displayRoutes3A(3);
                     switch (chosenRoutes3A) {
                         case 1:
                             ShownRoutes.FrostpeaktoAquaville(1);
@@ -1617,6 +1619,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n( ) Kindlewood\n(/) Aquaville");
+                    
                     // continueProgram2 = false;
                     break;
                 default:
@@ -1629,7 +1632,7 @@ public class GuardianOfArchipelago {
         }
     }
 
-    public static void Destination3B(String[] locations) {
+		public static void Destination3B(String[] locations) {
         int choice3B = 0;
         boolean validInput = false;
 
@@ -1655,10 +1658,10 @@ public class GuardianOfArchipelago {
                 case 1:
                 //choice = input sa island
                 //chosenRoutes = input sa routes
-                    System.out.println("\nYou choose the island of " + locations[choice3B - 1] + "."); // autumnvale
+                    System.out.println("\nYou choose the island of " + locations[choice3B + 1] + "."); // autumnvale
                     System.out.print(
                             "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
-                    chosenRoutes3B = displayRoutes3B(1);
+                    chosenRoutes3B = displayRoutes3B(2);
                     switch (chosenRoutes3B) {
                         case 1:
                             ShownRoutes.AutumnvaletoKindlewood(1);
@@ -1672,14 +1675,14 @@ public class GuardianOfArchipelago {
                         default:
                             System.out.println("Invalid input.");
                     }
-                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n( ) Kindlewood\n( ) Aquaville");
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
                     // continueProgram2 = false;
                     break;
                 case 2:
-                    System.out.println("\nYou choose the island of " + locations[choice3B - 1] + "."); // frostpeak
+                    System.out.println("\nYou choose the island of " + locations[choice3B + 1] + "."); // frostpeak
                     System.out.println(
                             "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
-                    chosenRoutes3B = displayRoutes3B(2);
+                    chosenRoutes3B = displayRoutes3B(3);
                     switch (chosenRoutes3B) {
                         case 1:
                             ShownRoutes.AutumnvaletoAquaville(1);
@@ -1693,7 +1696,7 @@ public class GuardianOfArchipelago {
                         default:
                             System.out.println("Invalid input.");
                     }
-                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
                     // continueProgram2 = false;
                     break;
                 default:
@@ -1705,6 +1708,8 @@ public class GuardianOfArchipelago {
             System.out.println("Invalid input. Enter the number that are listed in the option only.");
         }
     }
+    
+    
 }
 
 class ShownRoutes {
