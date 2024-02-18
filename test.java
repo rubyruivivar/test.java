@@ -1031,11 +1031,11 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes3B;
     }
-    public static int displayRoutes4A(int islandIndex3) {
+    public static int displayRoutes4A(int islandIndex4) {
         Routes Routes = new Routes();
 
         System.out.println("\nPossible routes from your current location:");
-        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        String[] routesArray = Routes.routesKindlewood(islandIndex4);
         int numRoutes = routesArray.length;
 
         int[] distances = new int[numRoutes];
@@ -1319,8 +1319,9 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                Destination4A(locations);
                     // continueProgram2 = false;
-                    break;
+                break;
                 case 4:
                     System.out.println("\nYou choose the island of " + locations[choice - 1] + "."); // aquaville
                     System.out.println(
@@ -1709,6 +1710,183 @@ public class GuardianOfArchipelago {
         }
     }
     
+    		public static void Destination4A(String[] locations) {
+        int choice4A = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Autumnvale\n(2) Frostpeak\n(3) Aquaville\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4A = scan.nextInt();
+
+                if (choice4A >= 1 && choice4A <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4A >= 1 && choice4A <= locations.length) {
+            switch (choice4A) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4A - 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4A = displayRoutes4A(1);
+                    switch (chosenRoutes4A) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAutumnvale(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAutumnvale(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAutumnvale(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    //Destination4B(locations);
+                    // continueProgram2 = false;
+                    break;
+                case 2:
+                    System.out.println("\nYou choose the island of " + locations[choice4A] + "."); // Kindlewood
+                    System.out.println(
+                            "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
+                    chosenRoutes4A = displayRoutes4A(2);
+                    switch (chosenRoutes4A) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoKindlewood(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoKindlewood(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoKindlewood(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    
+                    // continueProgram2 = false;
+                    break;
+                case 3:
+                    System.out.println("\nYou choose the island of " + locations[choice4A] + "."); // Aquaville
+                    System.out.println(
+                            "\nDESCRIPTION: One of the Forbidden Islands known for its earthquake phenomenon and is best described for its weather condition - summer.\n");
+                    chosenRoutes4A = displayRoutes4A(3);
+                    switch (chosenRoutes4A) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }
+
+		public static void Destination4B(String[] locations) {
+        int choice4B = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print("\nIslands\n(1) Frostpeak\n(2) Aquaville\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4B = scan.nextInt();
+
+                if (choice4B >= 1 && choice4B <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4B >= 1 && choice4B <= locations.length) {
+            switch (choice4B) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4B + 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4B = displayRoutes4B(2);
+                    switch (chosenRoutes4B) {
+                        case 1:
+                            ShownRoutes.AutumnvaletoKindlewood(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AutumnvaletoKindlewood(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AutumnvaletoKindlewood(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    // continueProgram2 = false;
+                    break;
+                case 2:
+                    System.out.println("\nYou choose the island of " + locations[choice4B + 1] + "."); // frostpeak
+                    System.out.println(
+                            "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
+                    chosenRoutes4B = displayRoutes4B(3);
+                    switch (chosenRoutes4B) {
+                        case 1:
+                            ShownRoutes.AutumnvaletoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AutumnvaletoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AutumnvaletoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }
+
     
 }
 
