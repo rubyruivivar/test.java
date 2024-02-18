@@ -1149,6 +1149,124 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes4B;
     }
+        public static int displayRoutes5A(int islandIndex5) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesKindlewood(islandIndex5);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes5A;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes5A = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes5A < 1 || chosenRout5s4A > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes5A = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes5A < 1 || chosenRoutes5A > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes5A + ") " + distances[chosenRoutes5A - 1]
+                + " meters - " + routesArray[chosenRoutes5A - 1]);
+        calculateTimeTravel(distances[chosenRoutes5A - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes5A;
+    }
+    public static int displayRoutes5B(int islandIndex2) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesAutumnvale(islandIndex2);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes5B;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes5B = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes5B < 1 || chosenRoutes5B > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes5B = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes5B < 1 || chosenRoutes5B > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes5B + ") " + distances[chosenRoutes5B - 1]
+                + " meters - " + routesArray[chosenRoutes5B - 1]);
+        calculateTimeTravel(distances[chosenRoutes5B - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes5B;
+    }
     
 
     private static void calculateTimeTravel(int distance) {
@@ -1633,7 +1751,7 @@ public class GuardianOfArchipelago {
         }
     }
 
-		public static void Destination3B(String[] locations) {
+    public static void Destination3B(String[] locations) {
         int choice3B = 0;
         boolean validInput = false;
 
@@ -1710,7 +1828,7 @@ public class GuardianOfArchipelago {
         }
     }
     
-    		public static void Destination4A(String[] locations) {
+    public static void Destination4A(String[] locations) {
         int choice4A = 0;
         boolean validInput = false;
 
@@ -1811,7 +1929,7 @@ public class GuardianOfArchipelago {
         }
     }
 
-		public static void Destination4B(String[] locations) {
+    public static void Destination4B(String[] locations) {
         int choice4B = 0;
         boolean validInput = false;
 
@@ -1887,7 +2005,8 @@ public class GuardianOfArchipelago {
         }
     }
 
-    
+
+	
 }
 
 class ShownRoutes {
