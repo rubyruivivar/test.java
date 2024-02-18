@@ -669,12 +669,15 @@ public class GuardianOfArchipelago {
     private static int chosenRoutes;
     private static int chosenRoutes2A;
     private static int chosenRoutes2B;
+    private static int chosenRoutes2C;
+    private static int chosenRoutes2D;
     private static int chosenRoutes3A;
     private static int chosenRoutes3B;
     private static int chosenRoutes4A;
     private static int chosenRoutes4B;
     private static int chosenRoutes5A;
     private static int chosenRoutes5B;
+    
     // private static boolean continueProgram2;
     // private static Routes ShownRoutes = new Routes();
 
@@ -851,6 +854,7 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes2A;
     }
+	
     public static int displayRoutes2B(int islandIndex3) {
         Routes Routes = new Routes();
 
@@ -911,7 +915,127 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes2B;
     }
-    
+
+        public static int displayRoutes2C(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes2C;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes2C = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes2C < 1 || chosenRoutes2C > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes2C = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes2C < 1 || chosenRoutes2C > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes2C + ") " + distances[chosenRoutes2C - 1]
+                + " meters - " + routesArray[chosenRoutes2C - 1]);
+        calculateTimeTravel(distances[chosenRoutes2C - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes2C;
+    }
+
+        public static int displayRoutes2D(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes2D;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes2D = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes2D < 1 || chosenRoutes2D > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes2D = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes2D < 1 || chosenRoutes2D > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes2D + ") " + distances[chosenRoutes2D - 1]
+                + " meters - " + routesArray[chosenRoutes2D - 1]);
+        calculateTimeTravel(distances[chosenRoutes2D - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes2D; 
+	}	
+	
     public static int displayRoutes3A(int islandIndex3) {
         Routes Routes = new Routes();
 
