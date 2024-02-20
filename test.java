@@ -674,18 +674,29 @@ public class GuardianOfArchipelago {
     private static int chosenRoutes2F;
     private static int chosenRoutes2G;
     private static int chosenRoutes2I;
-    //private static int chosenRoutes2J;
-    //private static int chosenRoutes2K;
     private static int chosenRoutes3A;
     private static int chosenRoutes3B;
+    private static int chosenRoutes3C;
     private static int chosenRoutes3D;
     private static int chosenRoutes3E;
     private static int chosenRoutes3F;
     private static int chosenRoutes3G;
+    private static int chosenRoutes3H;
     private static int chosenRoutes4A;
     private static int chosenRoutes4B;
+    private static int chosenRoutes4C;
+    private static int chosenRoutes4D;
+    private static int chosenRoutes4E;
+    private static int chosenRoutes4F;
+    private static int chosenRoutes4G;
+    private static int chosenRoutes4H;
     private static int chosenRoutes5A;
     private static int chosenRoutes5B;
+    private static int chosenRoutes5C;
+    private static int chosenRoutes5D;
+    private static int chosenRoutes5E;
+    private static int chosenRoutes5F;
+    private static int chosenRoutes5G;
     
     // private static boolean continueProgram2;
     // private static Routes ShownRoutes = new Routes();
@@ -1345,6 +1356,7 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes3A;
     }
+    
     public static int displayRoutes3B(int islandIndex2) {
         Routes Routes = new Routes();
 
@@ -1404,6 +1416,66 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes3B;
     }
+    
+    public static int displayRoutes3C(int islandIndex4) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesKindlewood(islandIndex4);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes3C;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes3C = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes3C < 1 || chosenRoutes3C > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes3C = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes3C < 1 || chosenRoutes3C > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes3C + ") " + distances[chosenRoutes3C - 1]
+                + " meters - " + routesArray[chosenRoutes3C - 1]);
+        calculateTimeTravel(distances[chosenRoutes3C - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes3C;
+    }    
 
     public static int displayRoutes3D(int islandIndex4) {
         Routes Routes = new Routes();
@@ -1584,7 +1656,127 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes3F;
     }                          
-                                                                        
+  
+   public static int displayRoutes3G(int islandIndex2) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesAutumnvale(islandIndex2);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes3G;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes3G = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes3G < 1 || chosenRoutes3G > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes3G = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes3G < 1 || chosenRoutes3G > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes3G + ") " + distances[chosenRoutes3G - 1]
+                + " meters - " + routesArray[chosenRoutes3G - 1]);
+        calculateTimeTravel(distances[chosenRoutes3G - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes3G;
+    }                                                                      
+
+   public static int displayRoutes3H(int islandIndex2) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesAutumnvale(islandIndex2);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes3H;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes3H = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes3H < 1 || chosenRoutes3H > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes3H = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes3H < 1 || chosenRoutes3H > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes3H + ") " + distances[chosenRoutes3H - 1]
+                + " meters - " + routesArray[chosenRoutes3H - 1]);
+        calculateTimeTravel(distances[chosenRoutes3H - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes3H;
+    }                                                                              
+                                                                                
     public static int displayRoutes4A(int islandIndex4) {
         Routes Routes = new Routes();
 
@@ -1644,6 +1836,7 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes4A;
     }
+    
     public static int displayRoutes4B(int islandIndex2) {
         Routes Routes = new Routes();
 
@@ -1703,6 +1896,307 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes4B;
     }
+    
+    public static int displayRoutes4C(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes4C;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes4C = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes4C < 1 || chosenRoutes4C > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes4C = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes4C < 1 || chosenRoutes4C > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes4C + ") " + distances[chosenRoutes4C - 1]
+                + " meters - " + routesArray[chosenRoutes4C - 1]);
+        calculateTimeTravel(distances[chosenRoutes4C - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes4C;
+    }
+    
+    public static int displayRoutes4D(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes4D;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes4D = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes4D < 1 || chosenRoutes4D > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes4D = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes4D < 1 || chosenRoutes4D > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes4D + ") " + distances[chosenRoutes4D - 1]
+                + " meters - " + routesArray[chosenRoutes4D - 1]);
+        calculateTimeTravel(distances[chosenRoutes4D - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes4D;
+    }    
+    
+    public static int displayRoutes4E(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesAquaville(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes4E;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes4E = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes4E < 1 || chosenRoutes4E > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes4E = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes4E < 1 || chosenRoutes4E > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes4E + ") " + distances[chosenRoutes4E - 1]
+                + " meters - " + routesArray[chosenRoutes4E - 1]);
+        calculateTimeTravel(distances[chosenRoutes4E - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes4E;
+    }        
+
+    public static int displayRoutes4F(int islandIndex2) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesAutumnvale(islandIndex2);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes4F;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes4F = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes4F < 1 || chosenRoutes4F > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes4F = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes4F < 1 || chosenRoutes4F > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes4F + ") " + distances[chosenRoutes4F - 1]
+                + " meters - " + routesArray[chosenRoutes4F - 1]);
+        calculateTimeTravel(distances[chosenRoutes4F - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes4F;
+    } 
+                   
+    public static int displayRoutes4G(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes4G;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes4G = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes4G < 1 || chosenRoutes4G > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes4G = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes4G < 1 || chosenRoutes4G > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes4G + ") " + distances[chosenRoutes4G - 1]
+                + " meters - " + routesArray[chosenRoutes4G - 1]);
+        calculateTimeTravel(distances[chosenRoutes4G - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes4G;
+    } 
+                                                
         public static int displayRoutes5A(int islandIndex5) {
         Routes Routes = new Routes();
 
@@ -1762,6 +2256,7 @@ public class GuardianOfArchipelago {
 
         return chosenRoutes5A;
     }
+    
     public static int displayRoutes5B(int islandIndex2) {
         Routes Routes = new Routes();
 
@@ -1822,6 +2317,185 @@ public class GuardianOfArchipelago {
         return chosenRoutes5B;
     }
     
+   public static int displayRoutes5C(int islandIndex3) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesFrostpeak(islandIndex3);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes5C;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes5C = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes5C < 1 || chosenRoutes5C > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes5C = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes5C < 1 || chosenRoutes5C > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes5C + ") " + distances[chosenRoutes5C - 1]
+                + " meters - " + routesArray[chosenRoutes5C - 1]);
+        calculateTimeTravel(distances[chosenRoutes5C - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes5C;
+    }
+
+   public static int displayRoutes5D(int islandIndex4) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesKindlewood(islandIndex4);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes5D;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes5D = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes5D < 1 || chosenRoutes5D > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes5D = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes5D < 1 || chosenRoutes5D > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes5D + ") " + distances[chosenRoutes5D - 1]
+                + " meters - " + routesArray[chosenRoutes5D - 1]);
+        calculateTimeTravel(distances[chosenRoutes5D - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes5D;
+    }
+
+   public static int displayRoutes5E(int islandIndex4) {
+        Routes Routes = new Routes();
+
+        System.out.println("\nPossible routes from your current location:");
+        String[] routesArray = Routes.routesKindlewood(islandIndex4);
+        int numRoutes = routesArray.length;
+
+        int[] distances = new int[numRoutes];
+
+        // Generate distances based on index with increasing values
+        for (int i = 0; i < numRoutes; i++) {
+            distances[i] = random.nextInt(81) + 10; // Distance range: 10-90 km, increasing with index
+        }
+
+        // Sort distances array to ensure increasing order
+        Arrays.sort(distances);
+
+        // Display routes with corresponding distances
+        for (int i = 0; i < numRoutes; i++) {
+            System.out.println("(" + (i + 1) + ") " + distances[i] + " meters - " + routesArray[i]);
+        }
+
+        // Find the shortest route index
+        int shortestRouteIndex = 0;
+        for (int i = 1; i < numRoutes; i++) {
+            if (distances[i] < distances[shortestRouteIndex]) {
+                shortestRouteIndex = i;
+            }
+        }
+
+        // Display the shortest route
+        System.out.println("Shortest Route: (" + (shortestRouteIndex + 1) + ") Distance: " + distances[shortestRouteIndex]
+                        + " meters - " + routesArray[shortestRouteIndex]);
+
+        // Get the user's choice of route
+        int chosenRoutes5E;
+        do {
+            System.out.print("\nEnter the number of the route you want to take from the options: ");
+
+            if (scan.hasNextInt()) {
+                chosenRoutes5E = scan.nextInt();
+
+                // Validate user input
+                if (chosenRoutes5E < 1 || chosenRoutes5E > numRoutes) {
+                    System.out.println("Invalid input.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scan.next(); // Consume the invalid input
+                chosenRoutes5E = -1; // Set chosenRoute to an invalid value to continue the loop
+            }
+        } while (chosenRoutes5E < 1 || chosenRoutes5E > numRoutes);
+
+        System.out.println("\nThe route you choose is: (" + chosenRoutes5E + ") " + distances[chosenRoutes5E - 1]
+                + " meters - " + routesArray[chosenRoutes5E - 1]);
+        calculateTimeTravel(distances[chosenRoutes5E - 1]); // Calculate time travel and convert to meters per hour
+
+        return chosenRoutes5E;
+    }
 
     private static void calculateTimeTravel(int distance) {
         int totalMinutes = distance / METERS_PER_MINUTE;
@@ -2714,7 +3388,64 @@ public class GuardianOfArchipelago {
             System.out.println("Invalid input. Enter the number that are listed in the option only.");
         }
     }
-    
+
+    public static void Destination3C(String[] locations) {
+        int choice3C = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Autumnvale\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice3C = scan.nextInt();
+
+                if (choice3C >= 1 && choice3C <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice3C >= 1 && choice3C <= locations.length) {
+            switch (choice3C) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice3C - 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes3C = displayRoutes3C(1);
+                    switch (chosenRoutes3C) {
+                        case 1:
+                            ShownRoutes.KindlewoodtoAutumnvale(1);
+                            break;
+                        case 2:
+                            ShownRoutes.KindlewoodtoAutumnvale(2);
+                            break;
+                        case 3:
+                            ShownRoutes.KindlewoodtoAutumnvale(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }
+                
     public static void Destination3D(String[] locations) {
         int choice3D = 0;
         boolean validInput = false;
@@ -2741,10 +3472,10 @@ public class GuardianOfArchipelago {
                 case 1:
                 //choice = input sa island
                 //chosenRoutes = input sa routes
-                    System.out.println("\nYou choose the island of " + locations[choice3D - 1] + "."); // autumnvale
+                    System.out.println("\nYou choose the island of " + locations[choice3D + 2] + "."); // autumnvale
                     System.out.print(
                             "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
-                    chosenRoutes3D = displayRoutes3D(2);
+                    chosenRoutes3D = displayRoutes3D(1);
                     switch (chosenRoutes3D) {
                         case 1:
                             ShownRoutes.AutumnvaletoKindlewood(1);
@@ -2759,7 +3490,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
-                    Destination2C(locations);
+                    Destination3G(locations);
                     // continueProgram2 = false;
                     break;
                 case 2:
@@ -2857,7 +3588,7 @@ public class GuardianOfArchipelago {
 
         do {
             System.out.print(
-                    "\nIslands\n(1) Autumnvale\n(2) Aquaville\n\nEnter the island you want to go: ");
+                    "\nIslands\n(1) Autumnvale\n(2) Kindlewood\n\nEnter the island you want to go: ");
 
             if (scan.hasNextInt()) {
                 choice3F = scan.nextInt();
@@ -2894,12 +3625,12 @@ public class GuardianOfArchipelago {
                         default:
                             System.out.println("Invalid input.");
                     }
-                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
-                    Destination2C(locations);
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n( ) Kindlewood\n(/) Aquaville");
+                    Destination3H(locations);
                     // continueProgram2 = false;
                     break;
                 case 2:
-                    System.out.println("\nYou choose the island of " + locations[choice3F + 1] + "."); // frostpeak
+                    System.out.println("\nYou choose the island of " + locations[choice3F] + "."); // frostpeak
                     System.out.println(
                             "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
                     chosenRoutes3F = displayRoutes3F(3);
@@ -2917,7 +3648,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");	
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
-                    Destination3E(locations);
+                    Destination3C(locations);
                     // continueProgram2 = false;
                     break;
                 default:
@@ -2929,7 +3660,121 @@ public class GuardianOfArchipelago {
             System.out.println("Invalid input. Enter the number that are listed in the option only.");
         }
     }                                           
-                                                                                                                        
+
+    public static void Destination3G(String[] locations) {
+        int choice3G = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Aquaville\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice3G = scan.nextInt();
+
+                if (choice3G >= 1 && choice3G <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice3G >= 1 && choice3G <= locations.length) {
+            switch (choice3G) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice3G + 2] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes3G = displayRoutes3G(3);
+                    switch (chosenRoutes3G) {
+                        case 1:
+                            ShownRoutes.AutumnvaletoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AutumnvaletoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AutumnvaletoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }                                                                                   
+
+    public static void Destination3H(String[] locations) {
+        int choice3H = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Kindlewood\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice3H = scan.nextInt();
+
+                if (choice3H >= 1 && choice3H <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice3H >= 1 && choice3H <= locations.length) {
+            switch (choice3H) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice3H + 2] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes3H = displayRoutes3H(3);
+                    switch (chosenRoutes3H) {
+                        case 1:
+                            ShownRoutes.AutumnvaletoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AutumnvaletoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AutumnvaletoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }    
+                                                                                                                                          
     public static void Destination4A(String[] locations) {
         int choice4A = 0;
         boolean validInput = false;
@@ -2974,11 +3819,11 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
-                    //Destination4B(locations);
+                    Destination4B(locations);
                     // continueProgram2 = false;
                     break;
                 case 2:
-                    System.out.println("\nYou choose the island of " + locations[choice4A] + "."); // Kindlewood
+                    System.out.println("\nYou choose the island of " + locations[choice4A - 1] + "."); // Kindlewood
                     System.out.println(
                             "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
                     chosenRoutes4A = displayRoutes4A(2);
@@ -2996,7 +3841,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
-                    
+                    Destination4C(locations);
                     // continueProgram2 = false;
                     break;
                 case 3:
@@ -3018,7 +3863,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n( ) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
-                    
+                    Destination4E(locations);
                     // continueProgram2 = false;
                     break;
                 default:
@@ -3056,24 +3901,25 @@ public class GuardianOfArchipelago {
                 case 1:
                 //choice = input sa island
                 //chosenRoutes = input sa routes
-                    System.out.println("\nYou choose the island of " + locations[choice4B + 1] + "."); // autumnvale
+                    System.out.println("\nYou choose the island of " + locations[choice4B] + "."); // autumnvale
                     System.out.print(
                             "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
-                    chosenRoutes4B = displayRoutes4B(2);
+                    chosenRoutes4B = displayRoutes4B(1);
                     switch (chosenRoutes4B) {
                         case 1:
-                            ShownRoutes.AutumnvaletoKindlewood(1);
+                            ShownRoutes.AutumnvaletoFrostpeak(1);
                             break;
                         case 2:
-                            ShownRoutes.AutumnvaletoKindlewood(2);
+                            ShownRoutes.AutumnvaletoFrostpeak(2);
                             break;
                         case 3:
-                            ShownRoutes.AutumnvaletoKindlewood(3);
+                            ShownRoutes.AutumnvaletoFrostpeak(3);
                             break;
                         default:
                             System.out.println("Invalid input.");
                     }
-                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    Destination4D(locations);
                     // continueProgram2 = false;
                     break;
                 case 2:
@@ -3094,7 +3940,8 @@ public class GuardianOfArchipelago {
                         default:
                             System.out.println("Invalid input.");
                     }
-                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    //Destination2I(locations);
                     // continueProgram2 = false;
                     break;
                 default:
@@ -3106,6 +3953,334 @@ public class GuardianOfArchipelago {
             System.out.println("Invalid input. Enter the number that are listed in the option only.");
         }
     }
+
+    public static void Destination4C(String[] locations) {
+        int choice4C = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print("\nIslands\n(1) Autumnvale\n(2) Aquaville\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4C = scan.nextInt();
+
+                if (choice4C >= 1 && choice4C <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4C >= 1 && choice4C <= locations.length) {
+            switch (choice4C) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4C - 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4C = displayRoutes4C(1);
+                    switch (chosenRoutes4C) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAutumnvale(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAutumnvale(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAutumnvale(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n( ) Aquaville");
+                    Destination3G(locations);
+                    // continueProgram2 = false;
+                    break;
+                case 2:
+                    System.out.println("\nYou choose the island of " + locations[choice4C + 1] + "."); // frostpeak
+                    System.out.println(
+                            "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
+                    chosenRoutes4C = displayRoutes4C(3);
+                    switch (chosenRoutes4C) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    Destination3E(locations);
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }
+
+     public static void Destination4D(String[] locations) {
+        int choice4D = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Aquaville\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4D = scan.nextInt();
+
+                if (choice4D >= 1 && choice4D <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4D >= 1 && choice4D <= locations.length) {
+            switch (choice4D) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4D + 2] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4D = displayRoutes4D(3);
+                    switch (chosenRoutes4D) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAquaville(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAquaville(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAquaville(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }    
+
+     public static void Destination4E(String[] locations) {
+        int choice4E = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Autumnvale\n(2) Frostpeak\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4E = scan.nextInt();
+
+                if (choice4E >= 1 && choice4E <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4E >= 1 && choice4E <= locations.length) {
+            switch (choice4E) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4E - 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4E = displayRoutes4E(1);
+                    switch (chosenRoutes4E) {
+                        case 1:
+                            ShownRoutes.AquavilletoAutumnvale(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AquavilletoAutumnvale(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AquavilletoAutumnvale(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    Destination4F(locations);
+                    // continueProgram2 = false;
+                    break;
+                case 2:
+                    System.out.println("\nYou choose the island of " + locations[choice4E - 1] + "."); // frostpeak
+                    System.out.println(
+                            "\nDESCRIPTION: An island of ice and snow. Frostpeak is the territory of wolves which has a keen sense of smell, hearing, and vision.\n");
+                    chosenRoutes4E = displayRoutes4E(2);
+                    switch (chosenRoutes4E) {
+                        case 1:
+                            ShownRoutes.AquavilletoFrostpeak(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AquavilletoFrostpeak(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AquavilletoFrostpeak(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n( ) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    Destination4G(locations);
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }
+
+     public static void Destination4F(String[] locations) {
+        int choice4F = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Frostpeak\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4F = scan.nextInt();
+
+                if (choice4F >= 1 && choice4F <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4F >= 1 && choice4F <= locations.length) {
+            switch (choice4F) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4F] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4F = displayRoutes4F(1);
+                    switch (chosenRoutes4F) {
+                        case 1:
+                            ShownRoutes.AutumnvaletoFrostpeak(1);
+                            break;
+                        case 2:
+                            ShownRoutes.AutumnvaletoFrostpeak(2);
+                            break;
+                        case 3:
+                            ShownRoutes.AutumnvaletoFrostpeak(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }    
+
+     public static void Destination4G(String[] locations) {
+        int choice4G = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Autumnvale\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice4G = scan.nextInt();
+
+                if (choice4G >= 1 && choice4G <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice4G >= 1 && choice4G <= locations.length) {
+            switch (choice4G) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice4G - 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes4G = displayRoutes4G(1);
+                    switch (chosenRoutes4G) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoAutumnvale(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoAutumnvale(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoAutumnvale(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }    
 
     public static void Destination5A(String[] locations) {
         int choice5A = 0;
@@ -3251,6 +4426,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n( ) Kindlewood\n(/) Aquaville");
+                    Destination5C(locations);
                     // continueProgram2 = false;
                     break;
                 case 2:
@@ -3272,6 +4448,7 @@ public class GuardianOfArchipelago {
                             System.out.println("Invalid input.");
                     }
                     System.out.println("\n\nChecklist:\n(/) Autumnvale\n( ) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    Destination5D(locations);
                     // continueProgram2 = false;
                     break;
                 default:
@@ -3283,8 +4460,121 @@ public class GuardianOfArchipelago {
             System.out.println("Invalid input. Enter the number that are listed in the option only.");
         }
 			    }
-			    
-	
+
+     public static void Destination5C(String[] locations) {
+        int choice5C = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Kindlewood\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice5C = scan.nextInt();
+
+                if (choice5C >= 1 && choice5C <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice5C >= 1 && choice5C <= locations.length) {
+            switch (choice5C) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice5C + 1] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes5C = displayRoutes5C(2);
+                    switch (chosenRoutes5C) {
+                        case 1:
+                            ShownRoutes.FrostpeaktoKindlewood(1);
+                            break;
+                        case 2:
+                            ShownRoutes.FrostpeaktoKindlewood(2);
+                            break;
+                        case 3:
+                            ShownRoutes.FrostpeaktoKindlewood(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }    			    			    
+
+     public static void Destination5D(String[] locations) {
+        int choice5D = 0;
+        boolean validInput = false;
+
+        do {
+            System.out.print(
+                    "\nIslands\n(1) Frostpeak\n\nEnter the island you want to go: ");
+
+            if (scan.hasNextInt()) {
+                choice5D = scan.nextInt();
+
+                if (choice5D >= 1 && choice5D <= locations.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number within the provided range.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a valid integer.");
+                scan.next(); // Consume the invalid input
+            }
+        } while (!validInput);
+        if (choice5D >= 1 && choice5D <= locations.length) {
+            switch (choice5D) {
+                case 1:
+                //choice = input sa island
+                //chosenRoutes = input sa routes
+                    System.out.println("\nYou choose the island of " + locations[choice5D] + "."); // autumnvale
+                    System.out.print(
+                            "\nDESCRIPTION: Autumn or Fall is the season on this island. In contrast to its beautiful season, strong to violent winds are what covers the entire island.\n");
+                    chosenRoutes5D = displayRoutes5D(2);
+                    switch (chosenRoutes5D) {
+                        case 1:
+                            ShownRoutes.KindlewoodtoFrostpeak(1);
+                            break;
+                        case 2:
+                            ShownRoutes.KindlewoodtoFrostpeak(2);
+                            break;
+                        case 3:
+                            ShownRoutes.KindlewoodtoFrostpeak(3);
+                            break;
+                        default:
+                            System.out.println("Invalid input.");
+                    }
+                    System.out.println("\n\nChecklist:\n(/) Autumnvale\n(/) Frostpeak\n(/) Kindlewood\n(/) Aquaville");
+                    System.out.println("Mission Completed! You save all the tourists!");
+                    // continueProgram2 = false;
+                    break;
+                default:
+                    // continueProgram2 = true;
+                    System.out.println("Invalid input. Enter the number that are listed in the option only.");
+            }
+        } else {
+            // continueProgram2 = true;
+            System.out.println("Invalid input. Enter the number that are listed in the option only.");
+        }
+    }   
+								
 }
 
 class ShownRoutes {
